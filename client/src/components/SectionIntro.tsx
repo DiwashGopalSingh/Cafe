@@ -1,0 +1,5 @@
+// Hearth & Paper: section introductions use folio labels, DM Serif Display, and a copper rule
+// to create a consistent printed-editorial rhythm across the café pages.
+export default function SectionIntro({ eyebrow, title, body, align = "left" }: { eyebrow: string; title: string; body?: string; align?: "left" | "right" }) {
+  return <div className={`${align === "right" ? "ml-auto text-right" : ""} max-w-xl`}><div className={`mb-5 flex items-center gap-3 ${align === "right" ? "justify-end" : ""}`}><span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#b65e3c]/55 bg-[#fffaf2] p-1"><img src="/images/diwash_mark.png" alt="" className="h-full w-full object-contain" /></span><span className="font-body text-[10px] font-extrabold tracking-[0.28em] text-[#b65e3c]">{eyebrow}</span><span className="copper-rule w-16" /></div><h2 className="font-display text-balance text-4xl leading-[0.98] text-[#2d241f] sm:text-5xl md:text-6xl">{title}</h2>{body && <p className="mt-6 max-w-lg font-body text-[15px] leading-7 text-[#77665a]">{body}</p>}</div>;
+}

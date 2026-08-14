@@ -1,0 +1,142 @@
+/* Hearth & Paper: warm editorial café system. Oat paper, espresso ink, muted sage, and Copper Kettle terracotta; asymmetry over centered templates; motion stays tactile and brief. */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --primary: #b65e3c;
+  --primary-foreground: #fff9ef;
+  --sidebar-primary: #b65e3c;
+  --sidebar-primary-foreground: #fff9ef;
+  --chart-1: #b65e3c;
+  --chart-2: #78907c;
+  --chart-3: #6e3f2b;
+  --chart-4: #ddcdb8;
+  --chart-5: #2d241f;
+  --radius: 0.35rem;
+  --background: #f6f0e6;
+  --foreground: #2d241f;
+  --card: #fffaf2;
+  --card-foreground: #2d241f;
+  --popover: #fffaf2;
+  --popover-foreground: #2d241f;
+  --secondary: #e9e0d2;
+  --secondary-foreground: #49382e;
+  --muted: #eee5d8;
+  --muted-foreground: #77665a;
+  --accent: #dce5d8;
+  --accent-foreground: #34443a;
+  --destructive: #a74432;
+  --destructive-foreground: #fff9ef;
+  --border: #dfd3c3;
+  --input: #dfd3c3;
+  --ring: #b65e3c;
+  --sidebar: #f0e7d9;
+  --sidebar-foreground: #2d241f;
+  --sidebar-accent: #e6d8c6;
+  --sidebar-accent-foreground: #2d241f;
+  --sidebar-border: #dfd3c3;
+  --sidebar-ring: #b65e3c;
+}
+
+.dark {
+  --background: #2d241f;
+  --foreground: #f6f0e6;
+  --card: #3b2f28;
+  --card-foreground: #f6f0e6;
+  --popover: #3b2f28;
+  --popover-foreground: #f6f0e6;
+  --secondary: #49382e;
+  --secondary-foreground: #f6f0e6;
+  --muted: #49382e;
+  --muted-foreground: #d9c8b6;
+  --accent: #526358;
+  --accent-foreground: #f6f0e6;
+  --border: rgba(246, 240, 230, 0.16);
+  --input: rgba(246, 240, 230, 0.16);
+  --ring: #d88963;
+  --sidebar: #3b2f28;
+  --sidebar-foreground: #f6f0e6;
+  --sidebar-accent: #49382e;
+  --sidebar-accent-foreground: #f6f0e6;
+  --sidebar-border: rgba(246, 240, 230, 0.16);
+  --sidebar-ring: #d88963;
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-background text-foreground; font-family: "Manrope", sans-serif; background-image: radial-gradient(rgba(91, 62, 43, 0.055) 0.7px, transparent 0.7px); background-size: 9px 9px; }
+  button:not(:disabled), [role="button"]:not([aria-disabled="true"]), [type="button"]:not(:disabled), [type="submit"]:not(:disabled), [type="reset"]:not(:disabled), a[href], select:not(:disabled), input[type="checkbox"]:not(:disabled), input[type="radio"]:not(:disabled) { @apply cursor-pointer; }
+}
+
+@layer utilities {
+  .font-display { font-family: "DM Serif Display", Georgia, serif; }
+  .font-body { font-family: "Manrope", sans-serif; }
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+  .paper-surface { background: rgba(255, 250, 242, 0.86); box-shadow: 0 18px 55px rgba(86, 61, 43, 0.08); }
+  .grain { position: relative; isolation: isolate; }
+  .grain::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.14; z-index: -1; background-image: radial-gradient(rgba(45, 36, 31, 0.22) 0.6px, transparent 0.6px); background-size: 5px 5px; mix-blend-mode: multiply; }
+  .copper-rule { height: 1px; background: linear-gradient(90deg, #b65e3c 0 34%, rgba(182, 94, 60, 0.18) 34% 100%); }
+  .editorial-link { position: relative; }
+  .editorial-link::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 1px; transform: scaleX(0); transform-origin: left; background: currentColor; transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1); }
+  .editorial-link:hover::after, .editorial-link:focus-visible::after { transform: scaleX(1); }
+  .pressable { transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 160ms ease; }
+  .pressable:active { transform: scale(0.97); }
+  .soft-lift { transition: transform 220ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 220ms ease; }
+  .soft-lift:hover { transform: translateY(-4px); box-shadow: 0 22px 42px rgba(86, 61, 43, 0.12); }
+  .fade-up { animation: fade-up 700ms cubic-bezier(0.23, 1, 0.32, 1) both; }
+  .fade-up-delay-1 { animation-delay: 80ms; }
+  .fade-up-delay-2 { animation-delay: 160ms; }
+  .fade-up-delay-3 { animation-delay: 240ms; }
+  @keyframes fade-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+  @media (prefers-reduced-motion: reduce) { .fade-up { animation: none; } *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; } }
+}
+
+@layer components {
+  .container { width: 100%; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
+  .flex { min-height: 0; min-width: 0; }
+  @media (min-width: 640px) { .container { padding-left: 1.5rem; padding-right: 1.5rem; } }
+  @media (min-width: 1024px) { .container { padding-left: 2rem; padding-right: 2rem; max-width: 1280px; } }
+}
