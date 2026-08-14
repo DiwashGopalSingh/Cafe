@@ -3,7 +3,7 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Router as WouterRouter, Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import SiteLayout from "./components/SiteLayout";
@@ -14,19 +14,25 @@ import Visit from "./pages/Visit";
 import Checkout from "./pages/Checkout";
 import { CustomizationProvider } from "./contexts/CustomizationContext";
 
+const getBase = () => {
+  const path = window.location.pathname;
+  if (path.toLowerCase().startsWith("/cafe")) return "/Cafe";
+  return "";
+};
 
 function Router() {
   return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/menu"} component={Menu} />
-      <Route path={"/story"} component={Story} />
-      <Route path={"/visit"} component={Visit} />
-      <Route path={"/checkout"} component={Checkout} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
+    <WouterRouter base={getBase()}>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/menu" component={Menu} />
+        <Route path="/story" component={Story} />
+        <Route path="/visit" component={Visit} />
+        <Route path="/checkout" component={Checkout} />
+        <Route path="/404" component={NotFound} />
+        <Route component={NotFound} />
+      </Switch>
+    </WouterRouter>
   );
 }
 
