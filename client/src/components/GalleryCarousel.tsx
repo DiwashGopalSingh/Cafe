@@ -7,11 +7,12 @@ import PhotoLightbox from "@/components/PhotoLightbox";
 
 const cafeInterior = "/images/diwash_hero.png";
 const cafeCounter = "/images/diwash_counter.png";
+const featuredCoffee = "https://t3.ftcdn.net/jpg/02/50/12/60/360_F_250126012_7H6lhy5254qFc4WTVUjqVbizkWDtO86L.jpg";
 
 const gallerySlides = [
   { title: "The room", caption: "Morning light across the communal table, with copper details close at hand.", meta: "Interior / morning light", image: cafeInterior, imageAlt: "Café interior with window seating, hanging lights, plants, and a long service counter", tone: "bg-[#dfcfbb]" },
+  { title: "Crafted Coffee", caption: "Slowly brewed espresso with velvety micro-foam, prepared with precision and care.", meta: "Coffee / freshly poured", image: featuredCoffee, imageAlt: "Artisanal coffee cup on a warm wooden table", tone: "bg-[#efe0d0]", link: "/menu" },
   { title: "Popular dishes", caption: "A close look at the plates guests ask about, photographed just before the first bite.", meta: "Food / made to share", image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=1200&q=85", imageAlt: "Multiple plated dishes arranged across a wooden café table", tone: "bg-[#d8e0d0]", link: "/menu" },
-  { title: "Something cold", caption: "Ice, color, and a little brightness for the slower half of the day.", meta: "Drinks / served cold", image: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=1200&q=85", imageAlt: "Bottled drinks and cold brew coffee over ice", tone: "bg-[#ead8c9]" },
   { title: "The counter", caption: "The daily rhythm: hands at work, steam in the air, and a room beginning to hum.", meta: "Counter / daily rhythm", image: cafeCounter, imageAlt: "Café counter with espresso equipment, shelves, cups, and a bright front window", tone: "bg-[#d9d4c2]" },
 ];
 
