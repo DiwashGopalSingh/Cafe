@@ -7,16 +7,17 @@ import PhotoLightbox from "@/components/PhotoLightbox";
 
 const cafeInterior = "/images/diwash_hero.png";
 const cafeCounter = "/images/diwash_counter.png";
-const featuredCoffee = "/images/crafted_coffee.jpg";
-const windowCorner = "/images/window_nook.jpg";
-const serviceImg = "/images/warm_service.jpg";
+const featuredCoffee = "/images/crafted_espresso.png";
+const windowCorner = "/images/cozy_window_table.png";
+const serviceImg = "/images/cafe_hospitality.png";
+const pastryImg = "/images/bakery_pastry.png";
 
 const gallerySlides = [
-  { title: "The room", caption: "Morning light across the communal table, with copper details close at hand.", meta: "Interior / morning light", image: cafeInterior, imageAlt: "Café interior with window seating, hanging lights, plants, and a long service counter", tone: "bg-[#dfcfbb]" },
-  { title: "Window nook", caption: "A quiet corner by the window with warm coffee, fresh pastry, and rain outside.", meta: "Seating / cozy window table", image: windowCorner, imageAlt: "Cozy window table with cushions, coffee cup, and fresh pastry", tone: "bg-[#e8dad0]" },
-  { title: "Warm Hospitality", caption: "Attentive service bringing freshly poured drinks and warm plates directly to your table.", meta: "Service / warm welcome", image: serviceImg, imageAlt: "Waitress serving fresh coffee to guests at a café table", tone: "bg-[#f2e6d8]" },
-  { title: "Crafted Coffee", caption: "Slowly brewed espresso with velvety micro-foam, prepared with precision and care.", meta: "Coffee / freshly poured", image: featuredCoffee, imageAlt: "Artisanal coffee cup on a warm wooden table", tone: "bg-[#efe0d0]", link: "/menu" },
-  { title: "The counter", caption: "The daily rhythm: hands at work, steam in the air, and a room beginning to hum.", meta: "Counter / daily rhythm", image: cafeCounter, imageAlt: "Café counter with espresso equipment, shelves, cups, and a bright front window", tone: "bg-[#d9d4c2]" },
+  { title: "The room", caption: "Morning light across the communal table, with copper details close at hand.", meta: "Interior / morning light", image: cafeInterior, imageAlt: "Diwash's Café sunlit interior with wooden counter and copper accents", tone: "bg-[#dfcfbb]" },
+  { title: "Window nook", caption: "A quiet corner by the window with warm coffee, fresh pastry, and soft morning light.", meta: "Seating / cozy window table", image: windowCorner, imageAlt: "Cozy window table with plush seating, coffee cup, and fresh pastry", tone: "bg-[#e8dad0]" },
+  { title: "Warm Hospitality", caption: "Attentive service bringing freshly poured drinks and warm plates directly to your table.", meta: "Service / warm welcome", image: serviceImg, imageAlt: "Barista serving fresh coffee to guests at a café table", tone: "bg-[#f2e6d8]" },
+  { title: "Crafted Coffee", caption: "Slowly brewed espresso with velvety micro-foam, prepared with precision and care.", meta: "Coffee / freshly poured", image: featuredCoffee, imageAlt: "Artisanal espresso cup with smooth latte art on a wooden table", tone: "bg-[#efe0d0]", link: "/menu" },
+  { title: "Fresh Bakery", caption: "Golden croissants, tarts, and orchard fruit galettes baked fresh every morning.", meta: "Food / made to share", image: pastryImg, imageAlt: "Golden croissants and fresh fruit pastry on ceramic plates", tone: "bg-[#d8e0d0]", link: "/menu" },
 ];
 
 export default function GalleryCarousel() {

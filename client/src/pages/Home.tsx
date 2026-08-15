@@ -7,8 +7,8 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import ReservationModal from "@/components/ReservationModal";
 
 const hero = "/images/diwash_hero.png";
-const featuredCoffee = "/images/crafted_coffee.jpg";
-const interior = "/images/diwash_counter.png";
+const featuredCoffee = "/images/crafted_espresso.png";
+const interior = "/images/bakery_pastry.png";
 
 export default function Home() {
   const [reservationOpen, setReservationOpen] = useState(false);

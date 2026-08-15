@@ -61,7 +61,7 @@ export default function Menu() {
         </div>
         <div className="relative overflow-hidden rounded-2xl border border-[#cbb9a4] bg-[#e9e0d2] shadow-xl group">
           <img
-            src="/images/window_nook.jpg"
+            src="/images/crafted_espresso.png"
             alt="Diwash's Café Menu Table"
             className="h-64 sm:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
