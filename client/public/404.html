@@ -4,27 +4,21 @@
     <meta charset="utf-8" />
     <title>Diwash's Café</title>
     <script type="text/javascript">
-      // GitHub Pages Single Page App Hash Redirect Fallback
-      (function () {
-        var l = window.location;
-        var path = l.pathname;
-        var knownRoutes = ['menu', 'story', 'visit', 'checkout', '404'];
-        var foundRoute = '';
-        var parts = path.split('/');
-        for (var i = 0; i < parts.length; i++) {
-          if (knownRoutes.indexOf(parts[i].toLowerCase()) !== -1) {
-            foundRoute = parts[i].toLowerCase();
-            break;
-          }
-        }
-        var base = foundRoute ? path.substring(0, path.toLowerCase().indexOf('/' + foundRoute)) : path;
-        if (!base.endsWith('/')) base += '/';
-        var targetHash = foundRoute ? '#/' + foundRoute : '#/';
-        l.replace(l.protocol + '//' + l.host + base + targetHash + l.search);
-      })();
+      // GitHub Pages Single Page App Redirect Fallback
+      // https://github.com/rafgraph/spa-github-pages
+      var pathSegmentsToKeep = 1;
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
     </script>
   </head>
   <body>
   </body>
 </html>
+
 

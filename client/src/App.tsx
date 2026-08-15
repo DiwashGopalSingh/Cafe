@@ -4,7 +4,6 @@ import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Router as WouterRouter, Route, Switch } from "wouter";
-import { useHashLocation } from "wouter/use-hash-location";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import SiteLayout from "./components/SiteLayout";
@@ -15,6 +14,14 @@ import Visit from "./pages/Visit";
 import Checkout from "./pages/Checkout";
 import { CustomizationProvider } from "./contexts/CustomizationContext";
 
+const getBase = () => {
+  const path = window.location.pathname;
+  if (path.toLowerCase().startsWith("/cafe")) {
+    return path.substring(0, "/cafe".length);
+  }
+  return "";
+};
+
 function App() {
   return (
     <ErrorBoundary>
@@ -22,7 +29,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <CustomizationProvider>
-            <WouterRouter hook={useHashLocation}>
+            <WouterRouter base={getBase()}>
               <SiteLayout>
                 <Switch>
                   <Route path="/" component={Home} />
@@ -43,4 +50,5 @@ function App() {
 }
 
 export default App;
+
 
