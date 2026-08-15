@@ -7,9 +7,9 @@ import PhotoLightbox from "@/components/PhotoLightbox";
 
 const cafeInterior = "/images/diwash_hero.png";
 const cafeCounter = "/images/diwash_counter.png";
-const featuredCoffee = "https://t3.ftcdn.net/jpg/02/50/12/60/360_F_250126012_7H6lhy5254qFc4WTVUjqVbizkWDtO86L.jpg";
-const windowCorner = "https://imgs.search.brave.com/J3UR9tSrwX7r5ealntbU0RkMHqPeSXLj5jA5GGNb7_w/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMjcv/MDUyLzU2Mi9zbWFs/bC9mcmVzaC1idW5z/LWJyZWFkLXBhc3Ry/eS1saWVzLW9uLXRo/ZS10YWJsZS1pbi10/aGUtY2FmZS1iYWtl/cnktc2VsZWN0aXZl/LWZvY3VzLWJsdXJy/ZWQtYmFja2dyb3Vu/ZC1haS1nZW5lcmF0/ZWQtZnJlZS1waG90/by5qcGc";
-const serviceImg = "https://imgs.search.brave.com/MSrSeuaY6CbVGeSMOxxLpOU619AQBmlpg04_FY0HbuE/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWcu/bWFnbmlmaWMuY29t/L2ZyZWUtcGhvdG8v/Y2xvc2V1cC13YWl0/cmVzcy1zZXJ2aW5n/LWNvZmZlZS1jb3Vw/bGUtY2FmZV82Mzcy/ODUtOTEwNC5qcGc_/c2VtdD1haXNfaHli/cmlkJnc9NzQwJnE9/ODA";
+const featuredCoffee = "/images/crafted_coffee.jpg";
+const windowCorner = "/images/window_nook.jpg";
+const serviceImg = "/images/warm_service.jpg";
 
 const gallerySlides = [
   { title: "The room", caption: "Morning light across the communal table, with copper details close at hand.", meta: "Interior / morning light", image: cafeInterior, imageAlt: "Café interior with window seating, hanging lights, plants, and a long service counter", tone: "bg-[#dfcfbb]" },

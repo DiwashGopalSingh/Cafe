@@ -7,7 +7,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import ReservationModal from "@/components/ReservationModal";
 
 const hero = "/images/diwash_hero.png";
-const featuredCoffee = "https://t3.ftcdn.net/jpg/02/50/12/60/360_F_250126012_7H6lhy5254qFc4WTVUjqVbizkWDtO86L.jpg";
+const featuredCoffee = "/images/crafted_coffee.jpg";
 const interior = "/images/diwash_counter.png";
 
 export default function Home() {
