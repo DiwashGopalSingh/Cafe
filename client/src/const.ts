@@ -6,9 +6,17 @@ export const getImageUrl = (path: string) => {
     return path;
   }
   const cleanPath = path.replace(/^\/+/, "");
-  const baseUrl = import.meta.env.BASE_URL.endsWith("/")
-    ? import.meta.env.BASE_URL
-    : `${import.meta.env.BASE_URL}/`;
+
+  let baseUrl = "/";
+  if (typeof window !== "undefined" && window.location.pathname.startsWith("/Cafe")) {
+    baseUrl = "/Cafe/";
+  } else if (import.meta.env.BASE_URL && import.meta.env.BASE_URL !== "./" && import.meta.env.BASE_URL !== "/") {
+    baseUrl = import.meta.env.BASE_URL;
+  }
+
+  if (!baseUrl.endsWith("/")) {
+    baseUrl += "/";
+  }
   return `${baseUrl}${cleanPath}`;
 };
 
