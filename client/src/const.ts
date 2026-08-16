@@ -1,5 +1,17 @@
 export { COOKIE_NAME, ONE_YEAR_MS } from "@shared/const";
 
+export const getImageUrl = (path: string) => {
+  if (!path) return "";
+  if (path.startsWith("http://") || path.startsWith("https://") || path.startsWith("data:")) {
+    return path;
+  }
+  const cleanPath = path.replace(/^\/+/, "");
+  const baseUrl = import.meta.env.BASE_URL.endsWith("/")
+    ? import.meta.env.BASE_URL
+    : `${import.meta.env.BASE_URL}/`;
+  return `${baseUrl}${cleanPath}`;
+};
+
 // Generate login URL at runtime so redirect URI reflects the current origin.
 export const getLoginUrl = () => {
   const oauthPortalUrl = import.meta.env.VITE_OAUTH_PORTAL_URL;
@@ -15,3 +27,4 @@ export const getLoginUrl = () => {
 
   return url.toString();
 };
+

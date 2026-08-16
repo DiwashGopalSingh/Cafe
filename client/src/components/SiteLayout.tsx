@@ -5,6 +5,7 @@ import { Link, useLocation } from "wouter";
 import { ArrowUpRight, Calendar, Menu as MenuIcon, X } from "lucide-react";
 import { useCustomization } from "@/contexts/CustomizationContext";
 import ReservationModal from "@/components/ReservationModal";
+import { getImageUrl } from "@/const";
 
 const navItems = [
   { href: "/menu", label: "Menu" },
@@ -24,7 +25,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <header className="sticky top-0 z-50 border-b border-border/70 bg-[#f6f0e6]/92 backdrop-blur-xl">
         <div className="container flex h-[76px] items-center justify-between gap-6">
           <Link href="/" className="group flex items-center gap-3" onClick={() => setOpen(false)} aria-label="Diwash's Café home">
-            <span className="relative flex h-10 w-10 items-center justify-center rounded-full border border-[#b65e3c]/70 bg-[#fffaf2] p-1 transition-transform duration-200 group-hover:rotate-[-8deg]"><img src="/images/diwash_mark.png" alt="" className="h-full w-full object-contain" /></span>
+            <span className="relative flex h-10 w-10 items-center justify-center rounded-full border border-[#b65e3c]/70 bg-[#fffaf2] p-1 transition-transform duration-200 group-hover:rotate-[-8deg]"><img src={getImageUrl("/images/diwash_mark.png")} alt="" className="h-full w-full object-contain" /></span>
             <span className="leading-none"><span className="block font-body text-[9px] font-extrabold tracking-[0.32em] text-[#6e3f2b]">DIWASH'S</span><span className="font-display text-[22px] text-[#2d241f]">Café</span><span className="block pt-0.5 font-body text-[7px] font-bold tracking-[0.23em] text-[#b65e3c]">COFFEE ROOM</span></span>
           </Link>
           <nav className="hidden items-center gap-8 md:flex" aria-label="Primary navigation">

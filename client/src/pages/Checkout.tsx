@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import SectionIntro from "@/components/SectionIntro";
 import { useCustomization } from "@/contexts/CustomizationContext";
 import MenuItem, { MenuItemData } from "@/components/MenuItem";
+import { getImageUrl } from "@/const";
 
 const menuItems: MenuItemData[] = [
   { name: "Diwash's House Espresso", price: "$4.50", category: "Hot Drink", description: "Our signature double shot with notes of dark chocolate & stone fruit.", image: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=600&q=80" },
@@ -134,7 +135,7 @@ export default function Checkout() {
           </div>
           <div className="relative overflow-hidden rounded-2xl border border-[#cbb9a4] bg-[#e9e0d2] shadow-xl group">
             <img
-              src="/images/diwash_cafe_checkout_header.png"
+              src={getImageUrl("/images/diwash_cafe_checkout_header.png")}
               alt="Diwash's Café Barista Kitchen Prep"
               className="h-64 sm:h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />

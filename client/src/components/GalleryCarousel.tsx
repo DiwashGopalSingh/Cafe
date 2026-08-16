@@ -4,13 +4,14 @@ import { Link } from "wouter";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Expand } from "lucide-react";
 import SectionIntro from "@/components/SectionIntro";
 import PhotoLightbox from "@/components/PhotoLightbox";
+import { getImageUrl } from "@/const";
 
-const cafeInterior = "/images/diwash_hero.png";
-const cafeCounter = "/images/diwash_counter.png";
-const featuredCoffee = "/images/crafted_espresso.png";
-const windowCorner = "/images/cozy_window_table.png";
-const serviceImg = "/images/cafe_hospitality.png";
-const pastryImg = "/images/bakery_pastry.png";
+const cafeInterior = getImageUrl("/images/diwash_hero.png");
+const cafeCounter = getImageUrl("/images/diwash_counter.png");
+const featuredCoffee = getImageUrl("/images/crafted_espresso.png");
+const windowCorner = getImageUrl("/images/cozy_window_table.png");
+const serviceImg = getImageUrl("/images/cafe_hospitality.png");
+const pastryImg = getImageUrl("/images/bakery_pastry.png");
 
 const gallerySlides = [
   { title: "The room", caption: "Morning light across the communal table, with copper details close at hand.", meta: "Interior / morning light", image: cafeInterior, imageAlt: "Diwash's Café sunlit interior with wooden counter and copper accents", tone: "bg-[#dfcfbb]" },

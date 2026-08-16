@@ -5,10 +5,11 @@ import SectionIntro from "@/components/SectionIntro";
 import GalleryCarousel from "@/components/GalleryCarousel";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ReservationModal from "@/components/ReservationModal";
+import { getImageUrl } from "@/const";
 
-const hero = "/images/diwash_hero.png";
-const featuredCoffee = "/images/crafted_espresso.png";
-const interior = "/images/bakery_pastry.png";
+const hero = getImageUrl("/images/diwash_hero.png");
+const featuredCoffee = getImageUrl("/images/crafted_espresso.png");
+const interior = getImageUrl("/images/bakery_pastry.png");
 
 export default function Home() {
   const [reservationOpen, setReservationOpen] = useState(false);
