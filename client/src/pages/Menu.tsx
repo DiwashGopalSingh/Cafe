@@ -114,7 +114,7 @@ export default function Menu() {
                 className="h-11 w-full border border-[#cbb9a4] bg-[#fffaf2] pl-10 pr-10 font-body text-sm text-[#2d241f] rounded-lg outline-none transition-shadow placeholder:text-[#a18d7b] focus:border-[#b65e3c] focus:ring-2 focus:ring-[#b65e3c]/20"
               />
               {query && (
-                <button type="button" onClick={() => setQuery("")} aria-label="Clear menu search" className="absolute right-3 top-1/2 -translate-y-1/2 text-[#77665a] hover:text-[#b65e3c]">
+                <button type="button" onClick={() => setQuery("")} aria-label="Clear menu search" className="absolute right-2 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center text-[#77665a] hover:text-[#b65e3c]">
                   <X className="h-4 w-4" />
                 </button>
               )}
@@ -215,9 +215,9 @@ export default function Menu() {
       </div>
     </section>
 
-    {/* Sticky floating bottom order bar */}
+    {/* Sticky floating bottom order bar with safe-area spacing */}
     {selectedCustomizations.length > 0 && (
-      <div className="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-40 w-[92%] max-w-md bg-[#2d241f] text-[#fff9ef] p-3.5 sm:p-4 rounded-2xl shadow-2xl border border-[#b65e3c]/50 flex items-center justify-between gap-3 animate-fade-in">
+      <div className="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-40 w-[92%] max-w-md bg-[#2d241f] text-[#fff9ef] p-3.5 sm:p-4 rounded-2xl shadow-2xl border border-[#b65e3c]/50 flex items-center justify-between gap-3 animate-fade-in mb-[env(safe-area-inset-bottom,0px)]">
         <div>
           <p className="font-body text-xs font-bold text-[#fff9ef] flex items-center gap-1.5">
             <ShoppingBag className="h-4 w-4 text-[#b65e3c]" /> {selectedCustomizations.length} items in order
@@ -227,7 +227,7 @@ export default function Menu() {
         <button
           type="button"
           onClick={() => setOrderModalOpen(true)}
-          className="pressable bg-[#b65e3c] px-3.5 py-2.5 rounded-xl font-body text-xs font-extrabold tracking-wider text-[#fff9ef] hover:bg-[#9e4d30] transition-colors flex items-center gap-1 shadow-sm"
+          className="pressable bg-[#b65e3c] px-4 py-2.5 rounded-xl font-body text-xs font-extrabold tracking-wider text-[#fff9ef] hover:bg-[#9e4d30] transition-colors flex items-center gap-1 shadow-sm min-h-[44px]"
         >
           PLACE ORDER →
         </button>

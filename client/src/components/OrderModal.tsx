@@ -54,7 +54,7 @@ export default function OrderModal({
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-5 top-5 text-[#77665a] hover:text-[#b65e3c] transition-colors"
+          className="absolute right-3.5 top-3.5 flex h-11 w-11 items-center justify-center text-[#77665a] hover:text-[#b65e3c] transition-colors rounded-full"
           aria-label="Close modal"
         >
           <X className="h-5 w-5" />
@@ -101,7 +101,7 @@ export default function OrderModal({
                   placeholder="e.g. Diwash"
                   value={customerName}
                   onChange={(e) => setCustomerName(e.target.value)}
-                  className="w-full h-10 border border-[#cbb9a4] bg-[#f6f0e6] px-3 font-body text-sm text-[#2d241f] rounded-lg outline-none focus:border-[#b65e3c] focus:ring-2 focus:ring-[#b65e3c]/20"
+                  className="w-full h-11 border border-[#cbb9a4] bg-[#f6f0e6] px-3 font-body text-sm text-[#2d241f] rounded-lg outline-none focus:border-[#b65e3c] focus:ring-2 focus:ring-[#b65e3c]/20"
                 />
               </div>
 
@@ -115,7 +115,7 @@ export default function OrderModal({
                   placeholder="e.g. Table 4 or 7981459397"
                   value={tableOrPhone}
                   onChange={(e) => setTableOrPhone(e.target.value)}
-                  className="w-full h-10 border border-[#cbb9a4] bg-[#f6f0e6] px-3 font-body text-sm text-[#2d241f] rounded-lg outline-none focus:border-[#b65e3c] focus:ring-2 focus:ring-[#b65e3c]/20"
+                  className="w-full h-11 border border-[#cbb9a4] bg-[#f6f0e6] px-3 font-body text-sm text-[#2d241f] rounded-lg outline-none focus:border-[#b65e3c] focus:ring-2 focus:ring-[#b65e3c]/20"
                 />
               </div>
 
@@ -128,7 +128,7 @@ export default function OrderModal({
                   placeholder="e.g. Extra hot, oat milk"
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  className="w-full h-10 border border-[#cbb9a4] bg-[#f6f0e6] px-3 font-body text-sm text-[#2d241f] rounded-lg outline-none focus:border-[#b65e3c] focus:ring-2 focus:ring-[#b65e3c]/20"
+                  className="w-full h-11 border border-[#cbb9a4] bg-[#f6f0e6] px-3 font-body text-sm text-[#2d241f] rounded-lg outline-none focus:border-[#b65e3c] focus:ring-2 focus:ring-[#b65e3c]/20"
                 />
               </div>
 

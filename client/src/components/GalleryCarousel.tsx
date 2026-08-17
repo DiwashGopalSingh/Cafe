@@ -59,7 +59,37 @@ export default function GalleryCarousel() {
           </div>
         </div>
 
-        <div className="mt-5 flex items-center justify-between gap-5"><p className="font-body text-[10px] font-extrabold tracking-[0.18em] text-[#77665a]">{activeSlide.meta}</p><div className="flex items-center gap-2"><button type="button" onClick={previous} aria-label="Previous gallery image" className="pressable inline-flex h-10 w-10 items-center justify-center border border-[#b65e3c]/45 text-[#b65e3c] hover:bg-[#fffaf2]"><ArrowLeft className="h-4 w-4" /></button><div className="flex items-center gap-1.5" aria-label="Choose gallery image">{gallerySlides.map((slide, index) => <button key={slide.title} type="button" onClick={() => setActiveIndex(index)} aria-label={`Show ${slide.title}`} aria-current={activeIndex === index ? "true" : undefined} className={`h-2.5 w-2.5 rounded-full border transition-colors ${activeIndex === index ? "border-[#b65e3c] bg-[#b65e3c]" : "border-[#b65e3c]/55 bg-transparent"}`} />)}</div><button type="button" onClick={next} aria-label="Next gallery image" className="pressable inline-flex h-10 w-10 items-center justify-center border border-[#b65e3c]/45 text-[#b65e3c] hover:bg-[#fffaf2]"><ArrowRight className="h-4 w-4" /></button></div></div>
+        <div className="mt-5 flex items-center justify-between gap-4">
+          <p className="font-body text-[10px] font-extrabold tracking-[0.18em] text-[#77665a]">{activeSlide.meta}</p>
+          <div className="flex items-center gap-2">
+            <button type="button" onClick={previous} aria-label="Previous gallery image" className="pressable inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#b65e3c]/45 text-[#b65e3c] hover:bg-[#fffaf2]">
+              <ArrowLeft className="h-4 w-4" />
+            </button>
+            <div className="flex items-center gap-1" aria-label="Choose gallery image">
+              {gallerySlides.map((slide, index) => (
+                <button
+                  key={slide.title}
+                  type="button"
+                  onClick={() => setActiveIndex(index)}
+                  aria-label={`Show ${slide.title}`}
+                  aria-current={activeIndex === index ? "true" : undefined}
+                  className="flex h-8 w-6 items-center justify-center"
+                >
+                  <span
+                    className={`h-2.5 transition-all duration-200 rounded-full ${
+                      activeIndex === index
+                        ? "w-6 bg-[#b65e3c]"
+                        : "w-2.5 bg-[#b65e3c]/40 hover:bg-[#b65e3c]/70"
+                    }`}
+                  />
+                </button>
+              ))}
+            </div>
+            <button type="button" onClick={next} aria-label="Next gallery image" className="pressable inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#b65e3c]/45 text-[#b65e3c] hover:bg-[#fffaf2]">
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
       </div>
     </div></div>
     <div className="container mt-12 flex items-center gap-3 border-t border-[#cbb9a4] pt-5"><span className="h-2 w-2 rounded-full bg-[#b65e3c]" /><p className="font-body text-[10px] font-extrabold tracking-[0.2em] text-[#77665a]">SWIPE OR OPEN A PHOTO FOR A CLOSER LOOK</p></div>

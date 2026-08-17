@@ -39,7 +39,7 @@ export default function ReservationModal({ isOpen, onClose }: ReservationModalPr
         <button
           onClick={onClose}
           aria-label="Close reservation modal"
-          className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-[#cbb9a4] bg-[#fffaf2] text-[#2d241f] shadow-md transition-colors hover:bg-[#b65e3c] hover:text-[#fff9ef]"
+          className="absolute right-3.5 top-3.5 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-[#cbb9a4] bg-[#fffaf2] text-[#2d241f] shadow-md transition-colors hover:bg-[#b65e3c] hover:text-[#fff9ef]"
         >
           <X className="h-5 w-5" />
         </button>

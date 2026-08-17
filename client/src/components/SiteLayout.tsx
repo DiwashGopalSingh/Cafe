@@ -32,7 +32,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
             {navItems.map((item) => <Link key={item.href} href={item.href} className={`editorial-link font-body text-sm font-semibold ${location === item.href ? "text-[#b65e3c]" : "text-[#49382e]"}`}>{item.label}</Link>)}
           </nav>
           <div className="flex items-center gap-2 sm:gap-3">
-            <button onClick={openCheckout} className="pressable flex items-center gap-1.5 bg-[#b65e3c] px-3 py-2 font-body text-[10px] font-extrabold tracking-[0.1em] text-[#fff9ef] rounded-md sm:hidden" type="button">
+            <button onClick={openCheckout} className="pressable flex min-h-[44px] items-center gap-1.5 bg-[#b65e3c] px-3.5 py-2.5 font-body text-[11px] font-extrabold tracking-[0.1em] text-[#fff9ef] rounded-lg sm:hidden" type="button" aria-label="Review order">
               {selectedCustomizations.length ? `ORDER (${selectedCustomizations.length})` : "ORDER"}
             </button>
             <button onClick={() => setReservationOpen(true)} className="pressable hidden items-center gap-2 border border-[#b65e3c] bg-[#fffaf2] px-4 py-2 font-body text-[11px] font-extrabold tracking-[0.12em] text-[#b65e3c] transition-colors hover:bg-[#b65e3c] hover:text-[#fff9ef] sm:flex" type="button">
@@ -41,7 +41,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
             <button onClick={openCheckout} className="pressable hidden items-center gap-2 bg-[#2d241f] px-4 py-2 font-body text-[11px] font-extrabold tracking-[0.12em] text-[#fff9ef] transition-colors hover:bg-[#b65e3c] sm:flex" type="button">
               {selectedCustomizations.length ? `REVIEW ORDER (${selectedCustomizations.length})` : "ORDER AHEAD"} <ArrowUpRight className="h-3.5 w-3.5" />
             </button>
-            <button onClick={() => setOpen(!open)} aria-expanded={open} aria-label={open ? "Close menu" : "Open menu"} className="pressable inline-flex h-10 w-10 items-center justify-center border border-border bg-card text-[#2d241f] rounded-md md:hidden">
+            <button onClick={() => setOpen(!open)} aria-expanded={open} aria-label={open ? "Close menu" : "Open menu"} className="pressable inline-flex h-11 w-11 items-center justify-center border border-border bg-card text-[#2d241f] rounded-lg md:hidden">
               {open ? <X className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
             </button>
           </div>
