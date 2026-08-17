@@ -31,13 +31,42 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
           <nav className="hidden items-center gap-8 md:flex" aria-label="Primary navigation">
             {navItems.map((item) => <Link key={item.href} href={item.href} className={`editorial-link font-body text-sm font-semibold ${location === item.href ? "text-[#b65e3c]" : "text-[#49382e]"}`}>{item.label}</Link>)}
           </nav>
-          <div className="flex items-center gap-3">
-            <button onClick={() => setReservationOpen(true)} className="pressable hidden items-center gap-2 border border-[#b65e3c] bg-[#fffaf2] px-4 py-2 font-body text-[11px] font-extrabold tracking-[0.12em] text-[#b65e3c] transition-colors hover:bg-[#b65e3c] hover:text-[#fff9ef] sm:flex" type="button"><Calendar className="h-3.5 w-3.5" /> RESERVE TABLE</button>
-            <button onClick={openCheckout} className="pressable hidden items-center gap-2 bg-[#2d241f] px-4 py-2 font-body text-[11px] font-extrabold tracking-[0.12em] text-[#fff9ef] transition-colors hover:bg-[#b65e3c] sm:flex" type="button">{selectedCustomizations.length ? `REVIEW ORDER (${selectedCustomizations.length})` : "ORDER AHEAD"} <ArrowUpRight className="h-3.5 w-3.5" /></button>
-            <button onClick={() => setOpen(!open)} aria-expanded={open} aria-label={open ? "Close menu" : "Open menu"} className="pressable inline-flex h-10 w-10 items-center justify-center border border-border bg-card text-[#2d241f] md:hidden">{open ? <X className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}</button>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <button onClick={openCheckout} className="pressable flex items-center gap-1.5 bg-[#b65e3c] px-3 py-2 font-body text-[10px] font-extrabold tracking-[0.1em] text-[#fff9ef] rounded-md sm:hidden" type="button">
+              {selectedCustomizations.length ? `ORDER (${selectedCustomizations.length})` : "ORDER"}
+            </button>
+            <button onClick={() => setReservationOpen(true)} className="pressable hidden items-center gap-2 border border-[#b65e3c] bg-[#fffaf2] px-4 py-2 font-body text-[11px] font-extrabold tracking-[0.12em] text-[#b65e3c] transition-colors hover:bg-[#b65e3c] hover:text-[#fff9ef] sm:flex" type="button">
+              <Calendar className="h-3.5 w-3.5" /> RESERVE TABLE
+            </button>
+            <button onClick={openCheckout} className="pressable hidden items-center gap-2 bg-[#2d241f] px-4 py-2 font-body text-[11px] font-extrabold tracking-[0.12em] text-[#fff9ef] transition-colors hover:bg-[#b65e3c] sm:flex" type="button">
+              {selectedCustomizations.length ? `REVIEW ORDER (${selectedCustomizations.length})` : "ORDER AHEAD"} <ArrowUpRight className="h-3.5 w-3.5" />
+            </button>
+            <button onClick={() => setOpen(!open)} aria-expanded={open} aria-label={open ? "Close menu" : "Open menu"} className="pressable inline-flex h-10 w-10 items-center justify-center border border-border bg-card text-[#2d241f] rounded-md md:hidden">
+              {open ? <X className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
+            </button>
           </div>
         </div>
-        {open && <div className="border-t border-border bg-[#fffaf2] px-5 py-5 md:hidden"><nav className="flex flex-col gap-4" aria-label="Mobile navigation">{navItems.map((item) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="font-display text-3xl text-[#2d241f]">{item.label}</Link>)}<div className="mt-3 flex flex-col gap-3"><button type="button" onClick={() => { setReservationOpen(true); setOpen(false); }} className="flex items-center gap-2 font-body text-xs font-extrabold tracking-[0.14em] text-[#b65e3c]"><Calendar className="h-4 w-4" /> RESERVE A TABLE</button><button type="button" onClick={() => { openCheckout(); setOpen(false); }} className="flex items-center gap-2 font-body text-xs font-extrabold tracking-[0.14em] text-[#2d241f]">{selectedCustomizations.length ? `REVIEW ORDER (${selectedCustomizations.length})` : "ORDER AHEAD"} <ArrowUpRight className="h-4 w-4" /></button></div></nav></div>}
+        {open && (
+          <div className="border-t border-border bg-[#fffaf2] px-6 py-6 shadow-xl md:hidden animate-fade-in">
+            <nav className="flex flex-col gap-3" aria-label="Mobile navigation">
+              {navItems.map((item) => (
+                <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className={`flex min-h-[44px] items-center font-display text-3xl transition-colors ${location === item.href ? "text-[#b65e3c]" : "text-[#2d241f]"}`}>
+                  {item.label}
+                </Link>
+              ))}
+              <div className="mt-4 flex flex-col gap-3 border-t border-[#dfd3c3] pt-4">
+                <button type="button" onClick={() => { setReservationOpen(true); setOpen(false); }} className="flex min-h-[44px] items-center gap-2.5 rounded-lg border border-[#b65e3c] bg-[#fffaf2] px-4 py-2.5 font-body text-xs font-extrabold tracking-[0.14em] text-[#b65e3c]">
+                  <Calendar className="h-4 w-4" /> RESERVE A TABLE
+                </button>
+                <button type="button" onClick={() => { openCheckout(); setOpen(false); }} className="flex min-h-[44px] items-center justify-between rounded-lg bg-[#2d241f] px-4 py-2.5 font-body text-xs font-extrabold tracking-[0.14em] text-[#fff9ef]">
+                  <span>{selectedCustomizations.length ? `REVIEW ORDER (${selectedCustomizations.length})` : "ORDER AHEAD"}</span>
+                  <ArrowUpRight className="h-4 w-4" />
+                </button>
+              </div>
+            </nav>
+          </div>
+        )}
+
       </header>
       <ReservationModal isOpen={reservationOpen} onClose={() => setReservationOpen(false)} />
       <main>{children}</main>

@@ -84,22 +84,22 @@ export default function ReservationForm() {
   }
 
   return (
-    <form onSubmit={submit} className="paper-surface border border-[#dfd3c3] p-6 md:p-9 rounded-2xl shadow-sm">
-      <div className="flex items-start justify-between gap-6 border-b border-[#dfd3c3] pb-5">
+    <form onSubmit={submit} className="paper-surface border border-[#dfd3c3] p-5 sm:p-7 md:p-9 rounded-2xl shadow-sm">
+      <div className="flex items-start justify-between gap-4 border-b border-[#dfd3c3] pb-5">
         <div>
           <p className="font-body text-[10px] font-extrabold tracking-[0.25em] text-[#b65e3c]">
             RESERVE & ORDER AHEAD / 02
           </p>
-          <h3 className="mt-3 font-display text-4xl leading-none text-[#2d241f]">Save a table & order ahead.</h3>
+          <h3 className="mt-2 font-display text-2xl sm:text-3xl md:text-4xl leading-tight text-[#2d241f]">Save a table & order ahead.</h3>
         </div>
-        <Users className="h-6 w-6 text-[#b65e3c]" />
+        <Users className="h-6 w-6 text-[#b65e3c] shrink-0" />
       </div>
 
-      <p className="mt-5 font-body text-xs leading-5 text-[#77665a]">
+      <p className="mt-4 font-body text-xs leading-5 text-[#77665a]">
         Reserve your table at Bhagwati Tole-3 in advance. For direct questions or same-day inquiries, call us at <strong>7981459397</strong>.
       </p>
 
-      <div className="mt-7 grid gap-5 sm:grid-cols-2">
+      <div className="mt-6 grid gap-4 sm:gap-5 sm:grid-cols-2">
         <label className="font-body text-xs font-bold text-[#49382e]">
           Date
           <input
@@ -199,10 +199,11 @@ export default function ReservationForm() {
 
       <button
         type="submit"
-        className="pressable mt-7 inline-flex items-center gap-2 bg-[#b65e3c] px-6 py-3.5 font-body text-xs font-extrabold tracking-[0.14em] text-[#fff9ef] rounded-lg hover:bg-[#9e4d30] transition-colors shadow-md"
+        className="pressable mt-6 w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#b65e3c] px-6 py-3.5 font-body text-xs font-extrabold tracking-[0.14em] text-[#fff9ef] rounded-lg hover:bg-[#9e4d30] transition-colors shadow-md"
       >
         <Sparkles className="h-4 w-4" /> CONFIRM & PLACE RESERVATION
       </button>
     </form>
+
   );
 }

@@ -292,9 +292,10 @@ export default function Checkout() {
         </div>
 
         {/* Customer Details Form */}
-        <form onSubmit={submitRequest} noValidate className="paper-surface border border-[#cbb9a4] p-6 md:p-8 rounded-2xl shadow-sm h-fit sticky top-24">
+        <form onSubmit={submitRequest} noValidate className="paper-surface border border-[#cbb9a4] p-5 sm:p-6 md:p-8 rounded-2xl shadow-sm h-fit static md:sticky md:top-24">
           <p className="font-body text-[10px] font-extrabold tracking-[0.24em] text-[#b65e3c]">YOUR DETAILS</p>
-          <h2 className="mt-2 font-display text-3xl text-[#2d241f]">Confirm & Send Order</h2>
+          <h2 className="mt-2 font-display text-2xl sm:text-3xl text-[#2d241f]">Confirm & Send Order</h2>
+
 
           {selectedCustomizations.length > 0 && (
             <div className="mt-4 bg-[#f6f0e6] p-3 rounded-lg border border-[#cbb9a4]/60 font-body text-xs flex justify-between items-center text-[#2d241f]">

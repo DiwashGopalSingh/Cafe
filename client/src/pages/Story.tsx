@@ -8,5 +8,68 @@ const windowTableImg = getImageUrl("/images/cozy_window_table.png");
 const detailImg = getImageUrl("/images/bakery_pastry.png");
 
 export default function Story() {
-  return <div className="bg-[#fffaf2]"><section className="container grid gap-12 py-20 md:grid-cols-[0.8fr_1.2fr] md:py-28"><div className="md:pt-16"><SectionIntro eyebrow="OUR STORY / SINCE 2026" title="Built for the in-between hours." body="Diwash's Café started with a simple question: what if a café felt less like a stop and more like a small, generous part of the day?" /></div><div className="relative"><img src={windowTableImg} alt="Cozy window corner table with fresh pastry and steaming coffee" className="aspect-[4/5] w-full rounded-[3rem_0.6rem_3rem_0.6rem] object-cover shadow-[0_25px_70px_rgba(86,61,43,0.16)]" /><p className="absolute -bottom-7 -left-5 max-w-[210px] bg-[#dce5d8] p-5 font-display text-2xl leading-none text-[#2d241f] shadow-[0_14px_30px_rgba(86,61,43,0.11)] md:-left-12">“Make the ordinary worth noticing.”</p></div></section><section className="bg-[#f6f0e6] py-20 md:py-28"><div className="container grid gap-12 md:grid-cols-[0.65fr_1.35fr]"><div><p className="font-body text-[10px] font-extrabold tracking-[0.28em] text-[#b65e3c]">THREE THINGS WE KEEP CLOSE</p></div><div className="grid gap-10 sm:grid-cols-3"><div className="border-t border-[#b65e3c] pt-4"><p className="font-display text-3xl text-[#2d241f]">01 / Care</p><p className="mt-4 font-body text-sm leading-6 text-[#77665a]">Good ingredients do not need a speech. They need time, attention, and the right amount of heat.</p></div><div className="border-t border-[#b65e3c] pt-4"><p className="font-display text-3xl text-[#2d241f]">02 / Rhythm</p><p className="mt-4 font-body text-sm leading-6 text-[#77665a]">Mornings move differently here. There is a pace for the first coffee and another for the last pastry.</p></div><div className="border-t border-[#b65e3c] pt-4"><p className="font-display text-3xl text-[#2d241f]">03 / Welcome</p><p className="mt-4 font-body text-sm leading-6 text-[#77665a]">Come in with a plan or without one. Either way, there is a place for your bag and another cup.</p></div></div></div></section><section className="container grid gap-10 py-20 md:grid-cols-[1.2fr_0.8fr] md:items-center md:py-28"><img src={detailImg} alt="Seasonal galette and golden croissants on ceramic plates" className="aspect-[16/10] w-full rounded-[0.6rem_3rem_0.6rem_3rem] object-cover" /><div><SectionIntro eyebrow="THE LITTLE DETAILS" title="Nothing too precious. Everything considered." body="From the ceramic on the table to the music in the corner, we leave a little room for the day to become itself." align="right" /><Link href="/visit" className="editorial-link mt-8 inline-flex items-center font-body text-xs font-extrabold tracking-[0.14em] text-[#b65e3c]">SEE WHERE WE ARE <ArrowUpRight className="ml-2 h-4 w-4" /></Link></div></section></div>;
+  return (
+    <div className="bg-[#fffaf2]">
+      <section className="container grid gap-10 sm:gap-12 py-14 sm:py-20 md:grid-cols-[0.8fr_1.2fr] md:py-28">
+        <div className="md:pt-16">
+          <SectionIntro
+            eyebrow="OUR STORY / SINCE 2026"
+            title="Built for the in-between hours."
+            body="Diwash's Café started with a simple question: what if a café felt less like a stop and more like a small, generous part of the day?"
+          />
+        </div>
+        <div className="relative">
+          <img
+            src={windowTableImg}
+            alt="Cozy window corner table with fresh pastry and steaming coffee"
+            className="aspect-[4/5] w-full rounded-[2rem_0.6rem_2rem_0.6rem] sm:rounded-[3rem_0.6rem_3rem_0.6rem] object-cover shadow-[0_25px_70px_rgba(86,61,43,0.16)]"
+          />
+          <p className="absolute -bottom-4 left-2 sm:-bottom-7 sm:-left-5 md:-left-12 max-w-[190px] sm:max-w-[210px] bg-[#dce5d8] p-4 sm:p-5 font-display text-xl sm:text-2xl leading-none text-[#2d241f] shadow-[0_14px_30px_rgba(86,61,43,0.11)] rounded-lg">
+            “Make the ordinary worth noticing.”
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-[#f6f0e6] py-14 sm:py-20 md:py-28">
+        <div className="container grid gap-8 sm:gap-12 md:grid-cols-[0.65fr_1.35fr]">
+          <div>
+            <p className="font-body text-[10px] font-extrabold tracking-[0.28em] text-[#b65e3c]">THREE THINGS WE KEEP CLOSE</p>
+          </div>
+          <div className="grid gap-6 sm:gap-10 sm:grid-cols-3">
+            <div className="border-t border-[#b65e3c] pt-4">
+              <p className="font-display text-2xl sm:text-3xl text-[#2d241f]">01 / Care</p>
+              <p className="mt-3 sm:mt-4 font-body text-sm leading-6 text-[#77665a]">Good ingredients do not need a speech. They need time, attention, and the right amount of heat.</p>
+            </div>
+            <div className="border-t border-[#b65e3c] pt-4">
+              <p className="font-display text-2xl sm:text-3xl text-[#2d241f]">02 / Rhythm</p>
+              <p className="mt-3 sm:mt-4 font-body text-sm leading-6 text-[#77665a]">Mornings move differently here. There is a pace for the first coffee and another for the last pastry.</p>
+            </div>
+            <div className="border-t border-[#b65e3c] pt-4">
+              <p className="font-display text-2xl sm:text-3xl text-[#2d241f]">03 / Welcome</p>
+              <p className="mt-3 sm:mt-4 font-body text-sm leading-6 text-[#77665a]">Come in with a plan or without one. Either way, there is a place for your bag and another cup.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="container grid gap-8 sm:gap-10 py-14 sm:py-20 md:grid-cols-[1.2fr_0.8fr] md:items-center md:py-28">
+        <img
+          src={detailImg}
+          alt="Seasonal galette and golden croissants on ceramic plates"
+          className="aspect-[16/10] w-full rounded-[0.6rem_2rem_0.6rem_2rem] sm:rounded-[0.6rem_3rem_0.6rem_3rem] object-cover"
+        />
+        <div>
+          <SectionIntro
+            eyebrow="THE LITTLE DETAILS"
+            title="Nothing too precious. Everything considered."
+            body="From the ceramic on the table to the music in the corner, we leave a little room for the day to become itself."
+          />
+          <Link href="/visit" className="editorial-link mt-6 sm:mt-8 inline-flex items-center font-body text-xs font-extrabold tracking-[0.14em] text-[#b65e3c]">
+            SEE WHERE WE ARE <ArrowUpRight className="ml-2 h-4 w-4" />
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
 }
+

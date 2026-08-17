@@ -28,9 +28,19 @@ export default function Visit() {
   }, []);
 
   return <div className="bg-[#f6f0e6]">
-    <section className="border-b border-border/70 bg-[#fffaf2] py-20 md:py-28"><div className="container grid gap-12 md:grid-cols-[0.9fr_1.1fr] md:items-end"><SectionIntro eyebrow="VISIT / COME AS YOU ARE" title="Find your way to the kettle." body="A warm room, a short walk from wherever you are. Come for the first coffee or the last pastry; we’ll leave the light on." /><div className="paper-surface grid grid-cols-2 gap-5 p-6 sm:grid-cols-4 md:mb-1"><div><Clock3 className="h-5 w-5 text-[#b65e3c]" /><p className="mt-3 font-body text-[10px] font-extrabold tracking-[0.16em] text-[#77665a]">HOURS</p><p className="mt-1 font-body text-sm font-bold text-[#2d241f]">7 — 3</p></div><div><MapPin className="h-5 w-5 text-[#b65e3c]" /><p className="mt-3 font-body text-[10px] font-extrabold tracking-[0.16em] text-[#77665a]">ADDRESS</p><p className="mt-1 font-body text-sm font-bold text-[#2d241f]">Bhagwati Tole-3</p></div><div><CarFront className="h-5 w-5 text-[#b65e3c]" /><p className="mt-3 font-body text-[10px] font-extrabold tracking-[0.16em] text-[#77665a]">PARKING</p><p className="mt-1 font-body text-sm font-bold text-[#2d241f]">Nearby</p></div><div><TrainFront className="h-5 w-5 text-[#b65e3c]" /><p className="mt-3 font-body text-[10px] font-extrabold tracking-[0.16em] text-[#77665a]">TRANSIT</p><p className="mt-1 font-body text-sm font-bold text-[#2d241f]">2 blocks</p></div></div></div></section>
-    <section className="container grid gap-12 py-14 md:grid-cols-[1.15fr_0.85fr] md:py-20">
-      <div className="overflow-hidden border border-[#d6c6b2] bg-[#e9e0d2] shadow-[0_18px_45px_rgba(86,61,43,0.11)]">
+    <section className="border-b border-border/70 bg-[#fffaf2] py-14 sm:py-20 md:py-28">
+      <div className="container grid gap-8 sm:gap-12 md:grid-cols-[0.9fr_1.1fr] md:items-end">
+        <SectionIntro eyebrow="VISIT / COME AS YOU ARE" title="Find your way to the kettle." body="A warm room, a short walk from wherever you are. Come for the first coffee or the last pastry; we’ll leave the light on." />
+        <div className="paper-surface grid grid-cols-2 gap-4 sm:gap-5 p-5 sm:p-6 sm:grid-cols-4 md:mb-1 rounded-2xl">
+          <div><Clock3 className="h-5 w-5 text-[#b65e3c]" /><p className="mt-2.5 sm:mt-3 font-body text-[10px] font-extrabold tracking-[0.16em] text-[#77665a]">HOURS</p><p className="mt-1 font-body text-sm font-bold text-[#2d241f]">7 — 3</p></div>
+          <div><MapPin className="h-5 w-5 text-[#b65e3c]" /><p className="mt-2.5 sm:mt-3 font-body text-[10px] font-extrabold tracking-[0.16em] text-[#77665a]">ADDRESS</p><p className="mt-1 font-body text-sm font-bold text-[#2d241f]">Bhagwati Tole-3</p></div>
+          <div><CarFront className="h-5 w-5 text-[#b65e3c]" /><p className="mt-2.5 sm:mt-3 font-body text-[10px] font-extrabold tracking-[0.16em] text-[#77665a]">PARKING</p><p className="mt-1 font-body text-sm font-bold text-[#2d241f]">Nearby</p></div>
+          <div><TrainFront className="h-5 w-5 text-[#b65e3c]" /><p className="mt-2.5 sm:mt-3 font-body text-[10px] font-extrabold tracking-[0.16em] text-[#77665a]">TRANSIT</p><p className="mt-1 font-body text-sm font-bold text-[#2d241f]">2 blocks</p></div>
+        </div>
+      </div>
+    </section>
+    <section className="container grid gap-8 sm:gap-12 py-12 sm:py-16 md:grid-cols-[1.15fr_0.85fr] md:py-20">
+      <div className="overflow-hidden border border-[#d6c6b2] bg-[#e9e0d2] rounded-2xl shadow-sm">
         <iframe
           title="Diwash's Café Google Maps Location"
           width="100%"
@@ -40,13 +50,14 @@ export default function Visit() {
           allowFullScreen
           referrerPolicy="no-referrer-when-downgrade"
           src={`https://maps.google.com/maps?q=${cafeLocation.lat},${cafeLocation.lng}&z=16&output=embed`}
-          className="h-[380px] w-full md:h-[500px]"
+          className="h-[300px] sm:h-[400px] md:h-[500px] w-full"
         />
-        <div className="flex items-center justify-between gap-4 border-t border-[#d6c6b2] bg-[#fffaf2] px-5 py-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-[#d6c6b2] bg-[#fffaf2] p-4 sm:px-5">
           <p className="font-body text-[9px] font-bold tracking-[0.15em] text-[#77665a]">27.868446°N, 83.545261°E · DIWASH'S CAFÉ</p>
           <a href={`https://www.google.com/maps/dir/?api=1&destination=${cafeLocation.lat},${cafeLocation.lng}`} target="_blank" rel="noreferrer" className="editorial-link flex shrink-0 items-center font-body text-[10px] font-extrabold tracking-[0.14em] text-[#b65e3c]">GET DIRECTIONS <ArrowUpRight className="ml-2 h-4 w-4" /></a>
         </div>
       </div>
+
       <div><SectionIntro eyebrow="THE PRACTICAL PART" title="Come early. Call if you need us." body="We keep the door open from the first good light until the afternoon starts to turn. For accessibility, large groups, or a special order, a quick call is the kindest way to make a plan." /><div className="mt-10 grid gap-5 border-t border-[#dfd3c3] pt-5"><a href="tel:7981459397" className="group flex items-center justify-between"><span className="flex items-center gap-3 font-body text-sm font-bold text-[#2d241f]"><Phone className="h-4 w-4 text-[#b65e3c]" />7981459397</span><ArrowUpRight className="h-4 w-4 text-[#b65e3c] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" /></a><a href="mailto:diwashgs64@gmail.com" className="group flex items-center justify-between border-t border-[#dfd3c3] pt-5"><span className="flex items-center gap-3 font-body text-sm font-bold text-[#2d241f]"><Mail className="h-4 w-4 text-[#b65e3c]" />diwashgs64@gmail.com</span><ArrowUpRight className="h-4 w-4 text-[#b65e3c] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" /></a></div></div></section>
     <section className="container grid gap-10 border-t border-[#dfd3c3] py-16 md:grid-cols-[0.7fr_1.3fr] md:py-24"><div><SectionIntro eyebrow="RESERVE A TABLE" title="Give the day a little shape." body="Choose a time and send a request. We’ll confirm the table by email." /></div><ReservationForm /></section>
   </div>;

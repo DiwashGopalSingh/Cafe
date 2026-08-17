@@ -107,9 +107,12 @@
   * {
     border-color: var(--border);
     outline-color: color-mix(in srgb, var(--ring) 50%, transparent);
+    -webkit-tap-highlight-color: transparent;
   }
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    overscroll-behavior-y: none;
   }
   body {
     background-color: var(--background);
@@ -117,6 +120,7 @@
     font-family: "Manrope", sans-serif;
     background-image: radial-gradient(rgba(91, 62, 43, 0.055) 0.7px, transparent 0.7px);
     background-size: 9px 9px;
+    overflow-x: hidden;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -128,6 +132,14 @@
   input[type="checkbox"]:not(:disabled),
   input[type="radio"]:not(:disabled) {
     cursor: pointer;
+  }
+  /* Prevent iOS auto-zoom on input focus by setting minimum font size to 16px on mobile */
+  @media (max-width: 639px) {
+    input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
   }
 }
 
@@ -144,7 +156,7 @@
   .editorial-link::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 1px; transform: scaleX(0); transform-origin: left; background: currentColor; transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1); }
   .editorial-link:hover::after, .editorial-link:focus-visible::after { transform: scaleX(1); }
   .pressable { transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 160ms ease; }
-  .pressable:active { transform: scale(0.97); }
+  .pressable:active { transform: scale(0.96); }
   .soft-lift { transition: transform 220ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 220ms ease; }
   .soft-lift:hover { transform: translateY(-4px); box-shadow: 0 22px 42px rgba(86, 61, 43, 0.12); }
   .fade-up { animation: fade-up 700ms cubic-bezier(0.23, 1, 0.32, 1) both; }
@@ -153,6 +165,12 @@
   .fade-up-delay-3 { animation-delay: 240ms; }
   @keyframes fade-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
   @media (prefers-reduced-motion: reduce) { .fade-up { animation: none; } *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; } }
+  
+  /* Safe area inset utilities for notch & home bar devices */
+  .pb-safe { padding-bottom: max(1.25rem, env(safe-area-inset-bottom)); }
+  .pt-safe { padding-top: max(1rem, env(safe-area-inset-top)); }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }
 
 @layer components {
@@ -161,3 +179,4 @@
   @media (min-width: 640px) { .container { padding-left: 1.5rem; padding-right: 1.5rem; } }
   @media (min-width: 1024px) { .container { padding-left: 2rem; padding-right: 2rem; max-width: 1280px; } }
 }
+

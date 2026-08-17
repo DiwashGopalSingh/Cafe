@@ -26,15 +26,16 @@ export default function ReservationModal({ isOpen, onClose }: ReservationModalPr
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-[#2d241f]/65 p-4 backdrop-blur-md transition-all duration-300"
+      className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-[#2d241f]/65 p-3 sm:p-4 backdrop-blur-md transition-all duration-300"
       onClick={onClose}
       aria-modal="true"
       role="dialog"
     >
       <div
-        className="relative w-full max-w-xl animate-in fade-in zoom-in-95 duration-200"
+        className="relative w-full max-w-xl max-h-[92vh] overflow-y-auto rounded-2xl animate-in fade-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
+
         <button
           onClick={onClose}
           aria-label="Close reservation modal"

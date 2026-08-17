@@ -34,7 +34,31 @@ export default function GalleryCarousel() {
   return <section className="bg-[#efe4d4] py-20 md:py-28">
     <div className="container grid gap-12 md:grid-cols-[0.75fr_1.25fr] md:items-center"><SectionIntro eyebrow="01 / THE GALLERY" title="A room worth lingering in." body="Real moments from the café, ready to browse with a swipe or a click." /><div>
       <div className="relative" role="region" aria-roledescription="carousel" aria-label="Copper Kettle photo gallery" tabIndex={0} onKeyDown={event => { if (event.key === "ArrowLeft") previous(); if (event.key === "ArrowRight") next(); }} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} onTouchCancel={() => { touchStartX.current = null; }}>
-        <div className={`relative min-h-[340px] overflow-hidden border border-[#cbb9a4] ${activeSlide.tone} shadow-[0_16px_35px_rgba(86,61,43,0.1)]`} aria-live="polite"><img src={activeSlide.image} alt={activeSlide.imageAlt} className="absolute inset-0 h-full w-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#2d241f]/75 via-[#2d241f]/5 to-[#2d241f]/10" /><button type="button" onClick={() => setLightboxOpen(true)} aria-label={`View ${activeSlide.title} photo fullscreen`} className="absolute right-6 top-6 z-20 inline-flex items-center gap-2 border border-[#fffaf2]/70 bg-[#2d241f]/45 px-3 py-2 font-body text-[10px] font-extrabold tracking-[0.14em] text-[#fffaf2] backdrop-blur-sm transition-colors hover:bg-[#2d241f]/70"><Expand className="h-3.5 w-3.5" /> VIEW PHOTO</button><div className="relative flex min-h-[340px] flex-col justify-between p-6 md:p-8"><div className="flex items-start justify-between gap-4"><span className="font-body text-[9px] font-extrabold tracking-[0.2em] text-[#fffaf2]">GALLERY / {String(activeIndex + 1).padStart(2, "0")}</span><span className="font-body text-[10px] font-bold text-[#fffaf2]">{activeIndex + 1} / {gallerySlides.length}</span></div><div className="max-w-lg"><p className="font-display text-5xl leading-none text-[#fffaf2] md:text-6xl">{activeSlide.title}</p><p className="mt-4 max-w-md font-body text-sm leading-6 text-[#fffaf2]/90">{activeSlide.caption}</p>{activeSlide.link ? <Link href={activeSlide.link} className="editorial-link mt-6 inline-flex items-center font-body text-xs font-extrabold tracking-[0.14em] text-[#fffaf2]">SEE THE MENU <ArrowUpRight className="ml-2 h-4 w-4" /></Link> : <p className="mt-6 font-body text-[10px] font-extrabold tracking-[0.18em] text-[#fffaf2]">{activeSlide.meta}</p>}</div></div></div>
+        <div className={`relative min-h-[300px] sm:min-h-[340px] overflow-hidden border border-[#cbb9a4] ${activeSlide.tone} shadow-[0_16px_35px_rgba(86,61,43,0.1)]`} aria-live="polite">
+          <img src={activeSlide.image} alt={activeSlide.imageAlt} className="absolute inset-0 h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#2d241f]/80 via-[#2d241f]/15 to-[#2d241f]/20" />
+          <button type="button" onClick={() => setLightboxOpen(true)} aria-label={`View ${activeSlide.title} photo fullscreen`} className="absolute right-4 top-4 sm:right-6 sm:top-6 z-20 inline-flex items-center gap-1.5 border border-[#fffaf2]/70 bg-[#2d241f]/50 px-2.5 py-1.5 sm:px-3 sm:py-2 font-body text-[9px] sm:text-[10px] font-extrabold tracking-[0.14em] text-[#fffaf2] backdrop-blur-sm transition-colors hover:bg-[#2d241f]/70 rounded-md">
+            <Expand className="h-3.5 w-3.5" /> VIEW PHOTO
+          </button>
+          <div className="relative flex min-h-[300px] sm:min-h-[340px] flex-col justify-between p-5 sm:p-6 md:p-8">
+            <div className="flex items-start justify-between gap-4">
+              <span className="font-body text-[9px] font-extrabold tracking-[0.2em] text-[#fffaf2]">GALLERY / {String(activeIndex + 1).padStart(2, "0")}</span>
+              <span className="font-body text-[10px] font-bold text-[#fffaf2]">{activeIndex + 1} / {gallerySlides.length}</span>
+            </div>
+            <div className="max-w-lg">
+              <p className="font-display text-3xl sm:text-5xl md:text-6xl leading-none text-[#fffaf2]">{activeSlide.title}</p>
+              <p className="mt-2 sm:mt-4 max-w-md font-body text-xs sm:text-sm leading-5 sm:leading-6 text-[#fffaf2]/90">{activeSlide.caption}</p>
+              {activeSlide.link ? (
+                <Link href={activeSlide.link} className="editorial-link mt-4 sm:mt-6 inline-flex items-center font-body text-xs font-extrabold tracking-[0.14em] text-[#fffaf2]">
+                  SEE THE MENU <ArrowUpRight className="ml-2 h-4 w-4" />
+                </Link>
+              ) : (
+                <p className="mt-4 sm:mt-6 font-body text-[10px] font-extrabold tracking-[0.18em] text-[#fffaf2]">{activeSlide.meta}</p>
+              )}
+            </div>
+          </div>
+        </div>
+
         <div className="mt-5 flex items-center justify-between gap-5"><p className="font-body text-[10px] font-extrabold tracking-[0.18em] text-[#77665a]">{activeSlide.meta}</p><div className="flex items-center gap-2"><button type="button" onClick={previous} aria-label="Previous gallery image" className="pressable inline-flex h-10 w-10 items-center justify-center border border-[#b65e3c]/45 text-[#b65e3c] hover:bg-[#fffaf2]"><ArrowLeft className="h-4 w-4" /></button><div className="flex items-center gap-1.5" aria-label="Choose gallery image">{gallerySlides.map((slide, index) => <button key={slide.title} type="button" onClick={() => setActiveIndex(index)} aria-label={`Show ${slide.title}`} aria-current={activeIndex === index ? "true" : undefined} className={`h-2.5 w-2.5 rounded-full border transition-colors ${activeIndex === index ? "border-[#b65e3c] bg-[#b65e3c]" : "border-[#b65e3c]/55 bg-transparent"}`} />)}</div><button type="button" onClick={next} aria-label="Next gallery image" className="pressable inline-flex h-10 w-10 items-center justify-center border border-[#b65e3c]/45 text-[#b65e3c] hover:bg-[#fffaf2]"><ArrowRight className="h-4 w-4" /></button></div></div>
       </div>
     </div></div>

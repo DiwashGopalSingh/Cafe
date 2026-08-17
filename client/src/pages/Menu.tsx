@@ -75,17 +75,70 @@ export default function Menu() {
       </div>
     </section>
     <section className="container py-12 md:py-20">
-      <div className="border-b border-[#dfd3c3] pb-7"><div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end"><div><p className="font-body text-[10px] font-extrabold tracking-[0.25em] text-[#b65e3c]">CHOOSE YOUR MOMENT</p><div className="mt-5 flex flex-wrap gap-2" role="tablist" aria-label="Menu categories">{categories.map((item) => <button key={item} type="button" role="tab" aria-selected={category === item} onClick={() => setCategory(item)} className={`pressable border px-4 py-2 font-body text-xs font-bold transition-colors ${category === item ? "border-[#b65e3c] bg-[#b65e3c] text-[#fff9ef]" : "border-[#cbb9a4] bg-transparent text-[#77665a] hover:border-[#b65e3c] hover:text-[#b65e3c]"}`}>{item}</button>)}</div></div><p className="font-body text-xs font-semibold text-[#a18d7b]">{visibleCount} items / owner supplied</p></div>
-        <div className="mt-7 grid gap-4 md:grid-cols-[1fr_auto] md:items-end"><label className="block"><span className="font-body text-[10px] font-extrabold tracking-[0.25em] text-[#b65e3c]">SEARCH THE MENU</span><span className="relative mt-2 block"><Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#b65e3c]" /><input value={query} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setQuery(event.target.value)} type="search" placeholder="Try “duck”, “tea”, or “fries”" aria-label="Search menu items" className="h-11 w-full border border-[#cbb9a4] bg-[#fffaf2] pl-10 pr-10 font-body text-sm text-[#2d241f] outline-none transition-shadow placeholder:text-[#a18d7b] focus:border-[#b65e3c] focus:ring-2 focus:ring-[#b65e3c]/20" />{query && <button type="button" onClick={() => setQuery("")} aria-label="Clear menu search" className="absolute right-3 top-1/2 -translate-y-1/2 text-[#77665a] hover:text-[#b65e3c]"><X className="h-4 w-4" /></button>}</span></label>
-          <div><span className="font-body text-[10px] font-extrabold tracking-[0.25em] text-[#b65e3c]">FILTER / DIETARY STATUS</span><div className="mt-2 flex flex-wrap items-center gap-2"><span className="mr-1 font-body text-[10px] text-[#a18d7b]">PENDING REVIEW</span>{dietaryOptions.map((option: string) => <button key={option} type="button" disabled aria-disabled="true" className="border border-[#d8cbbb] bg-[#eee7dc] px-3 py-2 font-body text-[10px] font-bold tracking-[0.1em] text-[#a18d7b]">{option.toUpperCase()}</button>)}</div><p className="mt-2 max-w-xs font-body text-[10px] leading-4 text-[#a18d7b]">Use the per-dish customization button below to request gluten-free preparation.</p></div>
+      <div className="border-b border-[#dfd3c3] pb-7">
+        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+          <div>
+            <p className="font-body text-[10px] font-extrabold tracking-[0.25em] text-[#b65e3c]">CHOOSE YOUR MOMENT</p>
+            <div className="mt-4 flex overflow-x-auto no-scrollbar gap-2 pb-1" role="tablist" aria-label="Menu categories">
+              {categories.map((item) => (
+                <button
+                  key={item}
+                  type="button"
+                  role="tab"
+                  aria-selected={category === item}
+                  onClick={() => setCategory(item)}
+                  className={`pressable shrink-0 border px-4 py-2.5 rounded-lg font-body text-xs font-bold transition-colors ${
+                    category === item
+                      ? "border-[#b65e3c] bg-[#b65e3c] text-[#fff9ef]"
+                      : "border-[#cbb9a4] bg-[#fffaf2] text-[#77665a] hover:border-[#b65e3c] hover:text-[#b65e3c]"
+                  }`}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+          </div>
+          <p className="font-body text-xs font-semibold text-[#a18d7b]">{visibleCount} items available</p>
+        </div>
+        <div className="mt-7 grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
+          <label className="block">
+            <span className="font-body text-[10px] font-extrabold tracking-[0.25em] text-[#b65e3c]">SEARCH THE MENU</span>
+            <span className="relative mt-2 block">
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#b65e3c]" />
+              <input
+                value={query}
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) => setQuery(event.target.value)}
+                type="search"
+                placeholder="Try “duck”, “latte”, or “fries”"
+                aria-label="Search menu items"
+                className="h-11 w-full border border-[#cbb9a4] bg-[#fffaf2] pl-10 pr-10 font-body text-sm text-[#2d241f] rounded-lg outline-none transition-shadow placeholder:text-[#a18d7b] focus:border-[#b65e3c] focus:ring-2 focus:ring-[#b65e3c]/20"
+              />
+              {query && (
+                <button type="button" onClick={() => setQuery("")} aria-label="Clear menu search" className="absolute right-3 top-1/2 -translate-y-1/2 text-[#77665a] hover:text-[#b65e3c]">
+                  <X className="h-4 w-4" />
+                </button>
+              )}
+            </span>
+          </label>
+          <div>
+            <span className="font-body text-[10px] font-extrabold tracking-[0.25em] text-[#b65e3c]">FILTER / DIETARY STATUS</span>
+            <div className="mt-2 flex flex-wrap items-center gap-2">
+              <span className="mr-1 font-body text-[10px] text-[#a18d7b]">PREPARATION:</span>
+              {dietaryOptions.map((option: string) => (
+                <button key={option} type="button" disabled aria-disabled="true" className="border border-[#d8cbbb] bg-[#eee7dc] px-3 py-2 rounded-md font-body text-[10px] font-bold tracking-[0.1em] text-[#a18d7b]">
+                  {option.toUpperCase()}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
       
-      <section className="paper-surface mt-8 border border-[#cbb9a4] p-5 md:p-6 shadow-sm" aria-live="polite" aria-labelledby="selected-customizations-title">
+      <section className="paper-surface mt-8 border border-[#cbb9a4] p-5 md:p-6 shadow-sm rounded-2xl" aria-live="polite" aria-labelledby="selected-customizations-title">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
             <p className="font-body text-[10px] font-extrabold tracking-[0.24em] text-[#b65e3c]">PRE-ORDER LIST</p>
-            <h2 id="selected-customizations-title" className="mt-2 font-display text-3xl text-[#2d241f]">
+            <h2 id="selected-customizations-title" className="mt-2 font-display text-2xl sm:text-3xl text-[#2d241f]">
               Selected items to order ({selectedCustomizations.length})
             </h2>
           </div>
@@ -132,28 +185,55 @@ export default function Menu() {
         )}
       </section>
 
-      <div className="mt-8 max-w-3xl">{sections.length ? sections.map((section: { name: string; items: MenuItemData[] }) => <section key={section.name} className="mb-10 last:mb-0"><div className="mb-1 flex items-center gap-3 border-b-2 border-[#b65e3c]/45 pb-3"><span className="inline-flex h-6 w-6 shrink-0 overflow-hidden items-center justify-center rounded-full border border-[#b65e3c]/55 bg-[#fffaf2]"><img src={getImageUrl("/images/diwash_mark.png")} alt="" className="h-full w-full object-cover rounded-full" /></span><span className="font-body text-[10px] font-extrabold tracking-[0.27em] text-[#b65e3c]">{section.name.toUpperCase()} / {String(section.items.length).padStart(2, "0")}</span><span className="ml-auto font-body text-[9px] font-bold tracking-[0.14em] text-[#a18d7b]">ASK ABOUT TODAY’S BATCH</span></div>{section.items.map((item: MenuItemData) => <MenuItem key={item.name} item={item} glutenFreeRequested={selectedCustomizations.includes(item.name)} onGlutenFreeToggle={toggleCustomization} />)}</section>) : <div className="border border-dashed border-[#cbb9a4] bg-[#fffaf2] px-6 py-10 text-center"><p className="font-display text-3xl text-[#2d241f]">Nothing on this page yet.</p><p className="mt-3 font-body text-sm text-[#77665a]">Try a different search or clear the menu search.</p><button type="button" onClick={() => { setQuery(""); setCategory("All"); }} className="editorial-link mt-5 font-body text-xs font-extrabold tracking-[0.14em] text-[#b65e3c]">CLEAR SEARCH</button></div>}</div>
-      <div className="mt-14 flex items-center justify-between border-t border-[#dfd3c3] pt-5"><p className="max-w-sm font-body text-xs leading-5 text-[#77665a]">Menu details are transcribed from the supplied image. Please ask the café team about ingredients and allergens.</p><a href="mailto:diwashgs64@gmail.com" className="editorial-link flex items-center font-body text-xs font-extrabold tracking-[0.14em] text-[#b65e3c]">ASK A QUESTION <ArrowUpRight className="ml-2 h-4 w-4" /></a></div>
+      <div className="mt-8 max-w-3xl">
+        {sections.length ? (
+          sections.map((section: { name: string; items: MenuItemData[] }) => (
+            <section key={section.name} className="mb-10 last:mb-0">
+              <div className="mb-1 flex items-center gap-3 border-b-2 border-[#b65e3c]/45 pb-3">
+                <span className="inline-flex h-6 w-6 shrink-0 overflow-hidden items-center justify-center rounded-full border border-[#b65e3c]/55 bg-[#fffaf2]">
+                  <img src={getImageUrl("/images/diwash_mark.png")} alt="" className="h-full w-full object-cover rounded-full" />
+                </span>
+                <span className="font-body text-[10px] font-extrabold tracking-[0.27em] text-[#b65e3c]">{section.name.toUpperCase()} / {String(section.items.length).padStart(2, "0")}</span>
+                <span className="ml-auto font-body text-[9px] font-bold tracking-[0.14em] text-[#a18d7b]">FRESH DAILY</span>
+              </div>
+              {section.items.map((item: MenuItemData) => (
+                <MenuItem key={item.name} item={item} glutenFreeRequested={selectedCustomizations.includes(item.name)} onGlutenFreeToggle={toggleCustomization} />
+              ))}
+            </section>
+          ))
+        ) : (
+          <div className="border border-dashed border-[#cbb9a4] bg-[#fffaf2] px-6 py-10 text-center rounded-2xl">
+            <p className="font-display text-3xl text-[#2d241f]">Nothing on this page yet.</p>
+            <p className="mt-3 font-body text-sm text-[#77665a]">Try a different search or clear the menu search.</p>
+            <button type="button" onClick={() => { setQuery(""); setCategory("All"); }} className="editorial-link mt-5 font-body text-xs font-extrabold tracking-[0.14em] text-[#b65e3c]">CLEAR SEARCH</button>
+          </div>
+        )}
+      </div>
+      <div className="mt-14 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-[#dfd3c3] pt-5">
+        <p className="max-w-sm font-body text-xs leading-5 text-[#77665a]">Menu details from Diwash's Café. Please ask our team about ingredients and allergens.</p>
+        <a href="mailto:diwashgs64@gmail.com" className="editorial-link flex items-center font-body text-xs font-extrabold tracking-[0.14em] text-[#b65e3c]">ASK A QUESTION <ArrowUpRight className="ml-2 h-4 w-4" /></a>
+      </div>
     </section>
 
     {/* Sticky floating bottom order bar */}
     {selectedCustomizations.length > 0 && (
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 w-[92%] max-w-md bg-[#2d241f] text-[#fff9ef] p-4 rounded-2xl shadow-2xl border border-[#b65e3c]/50 flex items-center justify-between gap-4">
+      <div className="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-40 w-[92%] max-w-md bg-[#2d241f] text-[#fff9ef] p-3.5 sm:p-4 rounded-2xl shadow-2xl border border-[#b65e3c]/50 flex items-center justify-between gap-3 animate-fade-in">
         <div>
-          <p className="font-body text-xs font-bold text-[#fff9ef] flex items-center gap-2">
-            <ShoppingBag className="h-4 w-4 text-[#b65e3c]" /> {selectedCustomizations.length} items in your order
+          <p className="font-body text-xs font-bold text-[#fff9ef] flex items-center gap-1.5">
+            <ShoppingBag className="h-4 w-4 text-[#b65e3c]" /> {selectedCustomizations.length} items in order
           </p>
-          <p className="font-body text-[10px] text-[#d9c8b6]">Ready for Diwash's Café?</p>
+          <p className="font-body text-[10px] text-[#d9c8b6]">Diwash's Café Pre-Order</p>
         </div>
         <button
           type="button"
           onClick={() => setOrderModalOpen(true)}
-          className="pressable bg-[#b65e3c] px-4 py-2.5 rounded-xl font-body text-xs font-extrabold tracking-wider text-[#fff9ef] hover:bg-[#9e4d30] transition-colors flex items-center gap-1.5 shadow-sm"
+          className="pressable bg-[#b65e3c] px-3.5 py-2.5 rounded-xl font-body text-xs font-extrabold tracking-wider text-[#fff9ef] hover:bg-[#9e4d30] transition-colors flex items-center gap-1 shadow-sm"
         >
           PLACE ORDER →
         </button>
       </div>
     )}
+
 
     <OrderModal
       isOpen={orderModalOpen}

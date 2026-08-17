@@ -48,8 +48,9 @@ export default function OrderModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#2d241f]/60 backdrop-blur-sm animate-fade-in">
-      <div className="relative w-full max-w-lg overflow-hidden border border-[#cbb9a4] bg-[#fffaf2] p-6 shadow-2xl rounded-2xl md:p-8">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-[#2d241f]/60 backdrop-blur-sm animate-fade-in overflow-y-auto">
+      <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto border border-[#cbb9a4] bg-[#fffaf2] p-5 sm:p-6 md:p-8 shadow-2xl rounded-2xl">
+
         <button
           type="button"
           onClick={onClose}
